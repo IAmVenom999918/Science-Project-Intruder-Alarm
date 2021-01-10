@@ -1,0 +1,150 @@
+// project made by Arnav Prasad | IX B | Roll No. 30.
+const int trigPin = 9;
+const int echoPin = 10;
+int led = 3;
+int buzzer = 11;
+long duration;
+int distance;
+int n =0;
+int i =0;
+int distanceToWall = 110; //put the distance of the module from the wall here.
+int ledTime = 130;
+int errorVar = 20;
+
+void setup() {
+pinMode(led, OUTPUT);
+pinMode(trigPin, OUTPUT);
+pinMode(echoPin, INPUT);
+Serial.begin(9600);
+
+digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  
+  duration = pulseIn(echoPin, HIGH);
+  
+  distance = duration*0.034/2;
+  
+  Serial.println(distance);
+  
+}
+
+void loop() {
+  
+  n++;
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  
+  duration = pulseIn(echoPin, HIGH);
+  
+  distance = duration*0.034/2;
+  
+  Serial.println(distance);
+
+  if(n>50){
+    n=0;
+      if(distance+errorVar < distanceToWall or distance-errorVar > distanceToWall){
+        tone(buzzer, 1000);
+
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        digitalWrite(led, HIGH);
+        delay(ledTime);
+        digitalWrite(led, LOW);
+        delay(ledTime);
+        
+
+        noTone(buzzer);
+        distance = distanceToWall;
+       
+        }
+      }
+}
